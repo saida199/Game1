@@ -1,30 +1,30 @@
 import random
 
-# Historique des choix du joueur
+#historique des choix du joueur
 historique = []
 
-# Contre-coup : ce qui bat chaque coup
+#contre-coup : ce qui bat chaque coup
 contre = {
     "Pierre": "Papier",
     "Papier": "Ciseaux",
     "Ciseaux": "Pierre"
 }
 
-# Fonction IA : prédire le prochain coup du joueur
+#fonction IA : prédire le prochain coup du joueur
 def prediction_ia(historique):
     if not historique:
         return random.choice(["Pierre", "Papier", "Ciseaux"])
     
-    # Compter les fréquences des coups précédents
+    #compter les fréquences des coups précédents
     freq = {"Pierre": 0, "Papier": 0, "Ciseaux": 0}
     for coup in historique:
         freq[coup] += 1
     
-    # Deviner le coup le plus probable du joueur
+    #deviner le coup le plus probable du joueur
     coup_probable = max(freq, key=freq.get)
     return contre[coup_probable]  # L’ordi joue le contre
 
-# Fonction principale du jeu
+#fonction principale du jeu
 def jouer():
     print("Bienvenue dans Pierre-Papier-Ciseaux avec IA ! (tape 'stop' pour quitter)")
     while True:
@@ -48,5 +48,6 @@ def jouer():
 
         historique.append(joueur)
 
-# Lancer le jeu
+#lancer le jeu
+
 jouer()
